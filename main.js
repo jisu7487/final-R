@@ -5,14 +5,23 @@ var qs = require('querystring');
 var template = require('./lib/template.js');
 var path = require('path');
 var sanitizeHtml = require('sanitize-html');
+var mysql = require('mysql');
+var db = mysql.createConnection({
+  host:'localhost',
+  user:'Hi',
+  password:'7487',
+  database:'opentutorials'
+});
+db.connect();
+
 
 var app = http.createServer(function(request,response){
     var _url = request.url;
     var queryData = url.parse(_url, true).query;
     var pathname = url.parse(_url, true).pathname;
     if(pathname === '/'){
-      if(queryData.id === undefined){
-        fs.readdir('./data', function(error, filelist){
+      (queryData.id === undefined){
+       /*if fs.readdir('./data', function(error, filelist){
           var title = 'Welcome';
           var description = 'Hello, Node.js';
           var list = template.list(filelist);
@@ -22,6 +31,12 @@ var app = http.createServer(function(request,response){
           );
           response.writeHead(200);
           response.end(html);
+        }); */
+
+        db.query('SELECT * FROM author', function(error,author){
+        console.log(author);
+        response.writeHead(200);
+        response.end('Success');
         });
       } else {
         fs.readdir('./data', function(error, filelist){
