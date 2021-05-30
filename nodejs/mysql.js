@@ -3,7 +3,8 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'GG',
   password : '7487',
-  database : 'opentutorials'
+  database : 'opentutorials',
+  port : '3307'
 });
  
 connection.connect();
