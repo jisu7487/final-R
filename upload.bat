@@ -1,3 +1,3 @@
 git add --all
-git commit -m "gdd"
+git commit -m "gdds"
 git push -u origin main 
