@@ -4,7 +4,6 @@ var connection = mysql.createConnection({
   user     : 'GG',
   password : '7487',
   database : 'opentutorials',
-  port : '3307'
 });
  
 connection.connect();

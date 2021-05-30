@@ -11,7 +11,6 @@ var db = mysql.createConnection({
   user:'GG',
   password:'7487',
   database:'opentutorials',
-  port : '3307'
 });
 db.connect();
  
