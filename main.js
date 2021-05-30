@@ -20,7 +20,7 @@ var app = http.createServer(function(request,response){
     var queryData = url.parse(_url, true).query;
     var pathname = url.parse(_url, true).pathname;
     if(pathname === '/'){
-      (queryData.id === undefined){
+     if (queryData.id === undefined){
        /*if fs.readdir('./data', function(error, filelist){
           var title = 'Welcome';
           var description = 'Hello, Node.js';
@@ -32,12 +32,12 @@ var app = http.createServer(function(request,response){
           response.writeHead(200);
           response.end(html);
         }); */
-
-        db.query('SELECT * FROM author', function(error,author){
-        console.log(author);
-        response.writeHead(200);
-        response.end('Success');
+        db.query(`SELECT * FROM topic`, function(error,topics){
+          console.log(topics);
+          response.writeHead(200);
+          response.end('Success');
         });
+
       } else {
         fs.readdir('./data', function(error, filelist){
           var filteredId = path.parse(queryData.id).base;
